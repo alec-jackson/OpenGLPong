@@ -5,10 +5,10 @@ CFLAGS = -g -Wall
 LDLIBS=-lglut -lGLEW -lGL -lSDL2
 
 pong: pong.o common/loadshaders.o
-	g++ -Wall -g -o pong pong.o common/loadshaders.o  -framework SDL2 -framework SDL2_mixer -framework OpenGL -lglew -F libs -rpath libs
+	g++ -Wall -g -o pong pong.o common/loadshaders.o  -lGLEW -lSDL2 -lSDL2_mixer -lGL -lOpenGL -pthread
 
 pong.o: pong.cpp
-	g++ -Wall -g -c -o pong.o pong.cpp -framework SDL2 -framework SDL2_mixer -framework OpenGL -lglew -F libs -rpath libs
+	g++ -Wall -g -c -o pong.o pong.cpp -lSDL2 -lGLEW -lSDL2 -lSDL2_mixer -lGL -lOpenGL -pthread
 
 common/loadshaders.o: common/loadshaders.cpp
 	g++ -Wall -g -c -o common/loadshaders.o common/loadshaders.cpp
